@@ -21,7 +21,7 @@ const Numbers = () => {
     const router = useRouter();
 
     useEffect(() => {
-        const fetchMails = async () => {
+        const fetchNumbers = async () => {
             try {
                 const token = localStorage.getItem('auth_token');
                 if (!token) {
@@ -47,7 +47,7 @@ const Numbers = () => {
             }
         };
 
-        fetchMails();
+        fetchNumbers();
     }, [router]);
 
     const handleDelete = async () => {
@@ -101,7 +101,7 @@ const Numbers = () => {
                         <tbody>
                         {numbers.length === 0 ? (
                             <tr>
-                                <td colSpan={5} className="text-center py-4">No mails available</td>
+                                <td colSpan={5} className="text-center py-4">No numbers available</td>
                             </tr>
                         ) : (
                             numbers.map(number => (

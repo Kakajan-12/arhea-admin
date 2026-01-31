@@ -21,7 +21,7 @@ const Vacancy = () => {
     const router = useRouter();
 
     useEffect(() => {
-        const fetchTours = async () => {
+        const fetchData = async () => {
             try {
                 const token = localStorage.getItem('auth_token');
                 if (!token) {
@@ -47,7 +47,7 @@ const Vacancy = () => {
             }
         };
 
-        fetchTours();
+        fetchData();
     }, [router]);
 
     if (error) {
@@ -80,7 +80,7 @@ const Vacancy = () => {
                         <tbody>
                         {vacancy.length === 0 ? (
                             <tr>
-                                <td colSpan={5} className="text-center py-4">No tours available</td>
+                                <td colSpan={5} className="text-center py-4">No data available</td>
                             </tr>
                         ) : (
                             vacancy.map(vacancy => (
