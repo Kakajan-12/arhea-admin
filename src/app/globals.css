@@ -4,39 +4,45 @@
 @tailwind components;
 @tailwind utilities;
 
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --radius-md: calc(var(--radius) * 0.8);
+  --font-inter: "Inter", sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
-.color{
-  color:#002A5F
+button,
+a {
+  cursor: pointer;
 }
 
-.bg{
-  background-color: #002A5F;
+.color {
+  color: #002a5f;
+}
+
+.bg {
+  background-color: #002a5f;
 }
 
 .tiptap-content {
-  font-family: system-ui, sans-serif;
-  line-height: 1.6;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  line-height: 1;
   font-size: 1rem;
   color: #111827;
-
   margin: 0;
   padding: 0;
 }
@@ -93,26 +99,21 @@ body {
 }
 
 .tiptap-content blockquote {
-  border-left: 4px solid #d1d5db; /* gray-300 */
+  border-left: 4px solid #d1d5db;
   padding-left: 1rem;
-  color: #6b7280; /* gray-600 */
+  color: #6b7280;
   font-style: italic;
   margin: 1rem 0;
 }
 
 .tiptap-content hr {
   border: none;
-  border-top: 1px solid #e5e7eb; /* gray-200 */
+  border-top: 1px solid #e5e7eb;
   margin: 2rem 0;
 }
 
-
 .ProseMirror {
   background-color: #ffffff !important;
-  color: #171717 !important;
-}
-
-.ProseMirror * {
   color: #171717 !important;
 }
 
@@ -124,10 +125,31 @@ body {
   background: rgba(0, 100, 255, 0.2) !important;
 }
 
-.tab-content{
+.tab-content {
   background-color: white;
 }
-.tab{
+.tab {
   background-color: white;
   color: black;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --radius: 0.625rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
