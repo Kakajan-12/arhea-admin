@@ -128,11 +128,17 @@ a {
 .tab-content {
   background-color: white;
 }
-.tab {
-  background-color: white;
-  color: black;
-}
 
+.tab {
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+.tab:checked,
+.tab[aria-selected="true"] {
+  background-color: white;
+  color: #002a5f;
+  font-weight: 600;
+}
 :root {
   --background: #ffffff;
   --foreground: #171717;
